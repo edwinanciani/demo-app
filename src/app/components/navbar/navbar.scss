@@ -1,0 +1,75 @@
+.sidebar .nav {
+  li  {
+    a {
+    padding: 18px 30px;
+    color: #AEB7C2;
+    border-left: 5px solid transparent;
+    }
+  }
+}
+.sidebar .nav > li > a:hover,
+  .sidebar .nav > li > a:focus,
+  .sidebar .nav > li > a.active {
+  color: #fff;
+  background-color: transparent;
+}
+.sidebar .nav > li > a:hover i,
+.sidebar .nav > li > a:focus i,
+.sidebar .nav > li > a.active i {
+  color: #00AAFF;
+}
+.sidebar .nav > li > a:focus,
+.sidebar .nav > li > a.active {
+  background-color: #20262E;
+  border-left-color: #00AAFF;
+}
+.sidebar .nav > li > a[data-toggle="collapse"] .icon-submenu {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  float: right;
+  position: relative;
+  top: 5px;
+  font-size: 12px;
+  line-height: 1.1;
+}
+.sidebar .nav > li > a[data-toggle="collapse"].collapsed .icon-submenu {
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.sidebar .nav {
+  /* submenu */
+}
+.sidebar .nav i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.sidebar .nav span {
+  position: relative;
+  top: -2px;
+}
+.sidebar .nav .nav > li > a {
+  padding-left: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sidebar .nav .nav > li > a:focus,
+.sidebar .nav .nav > li > a.active {
+  background-color: transparent;
+  border-left-color: transparent;
+}
+.sidebar .nav .nav > li > a.active a {
+  color: #fff;
+}
