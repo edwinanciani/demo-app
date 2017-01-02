@@ -5,9 +5,7 @@
 @import "bower_components/font-awesome/scss/font-awesome.scss";
 @import "main/layout";
 @import "components/navbar/navbar";
-@import "components/auth/auth";
-@import "components/profile/profile";
-
+@import "../views/user/auth";
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject

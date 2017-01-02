@@ -7,7 +7,6 @@
 
   /** @ngInject */
   function ChatsController() {
-    var vm = this;
 
   }
 })();

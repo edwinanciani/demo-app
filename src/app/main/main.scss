@@ -151,3 +151,15 @@ ul.notifications > li > .more:hover, ul.notifications > li > .more:focus {
   margin-right: 6px;
 }
 
+.title-center {
+  padding: 7px;
+  cursor: default;
+}
+
+.button-right {
+  padding:  3px 8px;
+  cursor: pointer;
+  float: right;
+  font-size: 24px;
+  border: none;
+}
