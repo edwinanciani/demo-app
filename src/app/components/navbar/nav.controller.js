@@ -6,10 +6,9 @@
   .controller('NavController', NavController);
 
 /** @ngInject */
-function NavController($timeout) {
+function NavController($timeout,$stateParams) {
+  var vm = this;
   var element = angular.element;
-
-
   element('.btn-toggle-fullwidth').on('click', function() {
     if(!element('body').hasClass('layout-fullwidth')) {
       element('body').addClass('layout-fullwidth');
@@ -17,7 +16,7 @@ function NavController($timeout) {
       element('body').removeClass('layout-fullwidth');
     }
 
-    element(this).find('.lnr').toggleClass('lnr-arrow-left-circle lnr-arrow-right-circle');
+    element(vm).find('.lnr').toggleClass('lnr-arrow-left-circle lnr-arrow-right-circle');
 
     if(element(window).innerWidth() < 1025) {
       if(!element('body').hasClass('offcanvas-active')) {
@@ -29,7 +28,7 @@ function NavController($timeout) {
   });
 
   element(window).on('load resize', function() {
-    if(element(this).innerWidth() < 1025) {
+    if(element(vm).innerWidth() < 1025) {
       element('body').addClass('layout-fullwidth');
     } else {
       element('body').removeClass('layout-fullwidth');
@@ -53,12 +52,15 @@ function NavController($timeout) {
     }, 500);
 
     element('.sidebar a[data-toggle="collapse"]').on('click', function() {
-      if(element(this).hasClass('collapsed')) {
-        element(this).addClass('active');
+      if(element(vm).hasClass('collapsed')) {
+        element(vm).addClass('active');
       } else {
-        element(this).removeClass('active');
+        element(vm).removeClass('active');
       }
     });
 
+    console.log($stateParams);
+
   });
-}})();
+}
+})();
