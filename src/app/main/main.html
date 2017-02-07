@@ -1,61 +1,85 @@
-<!-- SIDEBAR -->
-<div class="sidebar" ng-controller="NavController">
-  <div class="brand">
-    <a ui-sref="app.dashboard"><h4><i class="fa fa-superpowers"></i> Demo APP</h4></a>
-  </div>
-  <div class="sidebar-scroll">
-    <nav>
-      <ul class="nav">
-        <li><a href="#" ui-sref="app.dashboard" ui-sref-active="active" class=""><i
-          class="fa fa-th-large"></i>
-          <span>Dashboard</span></a></li>
-        <li><a href="#" ui-sref="app.elements" ui-sref-active="active" ng-class="{active:isActive('app.elements')}" class=""><i class="fa fa-code"></i> <span>Elements</span></a></li>
-      </ul>
-    </nav>
-  </div>
-</div>
-<!-- END SIDEBAR -->
-<!-- MAIN -->
-<div class="main">
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-btn">
-        <button type="button" class="btn-toggle-fullwidth"><i class="fa  fa-bars"></i></button>
-      </div>
-      <div class="navbar-header">
-        <button class="navbar-toggle collapsed button-right" data-toggle="collapse"
-                data-target="#navbar-menu">
-          <span class="sr-only">Toggle Navigation</span>
-          <i class="fa  fa-ellipsis-v"></i>
-        </button>
-        <div class=" navbar-left hidden-xs">
-          <h3 class="title-center">{{title}}</h3>
+<div layout="column" class="wrapper" ng-cloak>
+    <section layout="row" flex>
+
+      <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="1" >
+        <md-toolbar md-theme="green">
+          <h1 class="md-toolbar-tools">Centricity</h1>
+        </md-toolbar>
+        <md-content>
+          <md-list>
+            <md-list-item ui-sref="app.dashboard">
+              <md-icon md-svg-icon class="fa fa-home"></md-icon>
+              <p> Dashboard </p>
+            </md-list-item>
+          <md-subheader class="md-no-sticky"><em>Apps</em></md-subheader>
+          <md-list-item ng-click="set()">
+            <md-icon md-svg-icon class="fa fa-ellipsis-v"></md-icon>
+            <p> Food Safety </p>
+          </md-list-item>
+          <md-list-item ng-click="set()">
+            <md-icon md-svg-icon class="fa fa-circle"></md-icon>
+            <p> Harvest Estimation</p>
+          </md-list-item>
+
+          <md-divider></md-divider>
+            <md-subheader class="md-no-sticky"><em>Company</em></md-subheader>
+            <md-list-item  ng-click="main.showPrompt($event)" ng-if="isAdmin">
+              <md-icon md-svg-icon class="fa fa-plus"></md-icon>
+              <p> Invite Members </p>
+            </md-list-item>
+
+            <md-divider></md-divider>
+          </md-list>
+        </md-content>
+
+      </md-sidenav>
+
+      <md-content flex>
+        <div ng-cloak>
+        <md-toolbar class="md-hue-2">
+          <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="main.toggleLeft()">
+              <md-icon md-svg-icon class="fa fa-bars"></md-icon>
+            </md-button>
+
+            <h2 flex md-truncate>{{title}}</h2>
+
+            <md-menu-bar>
+              <md-menu>
+                <button ng-click="$mdMenu.open()">
+                  <md-icon md-svg-icon class="fa fa-ellipsis-v"></md-icon>
+                </button>
+                <md-menu-content>
+                  <md-menu-item>
+                    <md-button ui-sref="app.profile.edit">
+                      Profile
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-divider></md-menu-divider>
+                  <md-menu-item>
+                    <md-button ng-click="main.userLogout()">
+                      Logout
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+              </md-menu>
+            </md-menu-bar>
+          </div>
+        </md-toolbar>
+
+        <div ui-view layout-padding>
         </div>
-      </div>
-      <div id="navbar-menu" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a ui-sref="app.chats">
-              <i class="fa fa-comments-o"></i>
-              <span class="badge bg-danger">5</span>
-            </a>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Edwin Anciani</span> <i class="icon-submenu fa fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#" ng-click="logout()"><i class="fa fa-exit"></i> <span>Logout</span></a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- END NAVBAR -->
-  <!-- MAIN CONTENT -->
-  <div class="main-content">
-    <div class="container-fluid">
-      <div ui-view></div>
-    </div>
+        </div>
+      </md-content>
+
+    </section>
+
   </div>
-</div>
+<script type="text/ng-template" id="dialog.html">
+<md-dialog aria-label="Mango (Fruit)" layout-padding="">
+  <h2 class="md-headline">Invite a employee</h2>
+  <h4 class="md-subhead">Provide the email of the employee to send the invitation</h4>
+  <formio src="$root.inviteUsers" submission="submission" hide-components="hideComponents"></formio>
+</md-dialog>
+</script>

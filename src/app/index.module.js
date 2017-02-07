@@ -8,6 +8,7 @@
       'ngMessages',
       'ngAria',
       'restangular',
+      'ngMaterial',
       'ui.router',
       'ui.bootstrap',
       'toastr',

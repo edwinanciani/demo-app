@@ -1,13 +1,5 @@
-/*{% if domain %}
-var APP_URL = '{{ domain }}';
-var API_URL = '{{ domain }}';
-{% else %}
-var APP_URL = '{{ protocol }}://{{ path }}.{{ host }}';
-var API_URL = '{{ protocol }}://api.{{ host }}';
-{% endif %}*/
-
-var APP_URL = 'https://mvlpuqbnaooebhx.form.io';
-var API_URL = 'https://api.form.io';
+var APP_URL = 'http://qwcutaemqenjxfm.localhost:3000';
+var API_URL = 'http://api.localhost:3000';
 
 // Parse query string
 var query = {};
@@ -23,7 +15,10 @@ angular.module('demoApp')
   apiUrl: apiUrl,
   forms: {
     userLoginForm: appUrl + '/user/login',
-    userRegisterForm: appUrl + '/user/register'
+    userRegisterForm: appUrl + '/user/register',
+		inviteUsers: appUrl + '/invite',
+		reset: appUrl + '/reset',
+		userEdit: appUrl + '/user'
   }
 
 });

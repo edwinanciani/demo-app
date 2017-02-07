@@ -1,0 +1,32 @@
+.app-card {
+  position: relative;
+  .app-card-icon {
+    text-align: center;
+    md-icon {
+      position: absolute;
+      top: -25px;
+      left: 0;
+      right:0;
+      padding-top: 3%;
+      font-size: 3em;
+      background-color: #00ad9c;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      color: white;
+    }
+  }
+  .app-card-description {
+    max-width: 400px;
+    p {
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .app-card-button {
+    background-color: #00ad9c;
+    &:hover {
+      background-color: #00a379;
+    }
+  }
+}
